@@ -138,53 +138,59 @@ const HomePage = () => {
   };
 
 
-  const handleloginClick = () => {
-    navigate("/login");
-  };
 
   return (
     <div>
       {/* Main Hero Section */}
-      <section id="home" className="min-h-screen flex items-center relative">
-        <div className="purple-glow-left"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-1">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  Start Learning with Next-Gen
-                  <span className="text-purple-500 block">VR & AR Labs</span>
-                </h1>
 
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                  SkillBridge XR lets you explore virtual labs, practice
-                  experiments, and build real skills through immersive
-                  simulations.
-                </p>
-              </div>
+<section id="home" className="min-h-screen flex items-center relative">
+  <div className="purple-glow-left"></div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => {
-                    window.location.href = "/signup";
-                  }}
-                  className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 flex items-center space-x-3 mx-auto lg:mx-0 mb-12"
-                >
-                  <Rocket size={20} />
-                  <span>Get Started</span>
-                </button>
-              </div>
-            </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-1">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* Right Model / Visual */}
-            <div className="relative">
-              <div className="relative z-5">
-                <YogaModel />
-              </div>
-            </div>
-          </div>
+      {/* LEFT CONTENT WITH ANIMATION */}
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="space-y-8"
+      >
+        <div className="space-y-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            Start Learning with Next-Gen
+            <span className="text-purple-500 block">VR & AR Labs</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            SkillBridge XR lets you explore virtual labs, practice
+            experiments, and build real skills through immersive
+            simulations.
+          </p>
         </div>
-      </section>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={() => (window.location.href = "/signup")}
+            className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 flex items-center space-x-3 mx-auto lg:mx-0 mb-12"
+          >
+            <Rocket size={20} />
+            <span>Get Started</span>
+          </button>
+        </div>
+      </motion.div>
+
+      {/* RIGHT SIDE MODEL */}
+      <div className="relative">
+        <div className="relative z-5">
+          <YogaModel />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Services Section */}
       <section id="services" className="bg-[#160e2a]">
@@ -219,18 +225,22 @@ const HomePage = () => {
           <div className="max-w-7xl relative">
             <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
             <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl"></div>
-            <div
-              className="
-    flex flex-col lg:flex-row items-center 
-    lg:rounded-r-full 
-    shadow-xl 
-    border-10 border-[#ad46ff] border-l-0 border-r-0 lg:border-r-10 
-    overflow-hidden
 
-    bg-black/10
-    backdrop-blur-2xl
-    bg-gradient-to-br from-black/10 to-black/5
-  "
+            <motion.div
+              initial={{ x: -150, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="
+        flex flex-col lg:flex-row items-center 
+        lg:rounded-r-full 
+        shadow-xl 
+        border-10 border-[#ad46ff] border-l-0 border-r-0 lg:border-r-10 
+        overflow-hidden
+        bg-black/10
+        backdrop-blur-2xl
+        bg-gradient-to-br from-black/10 to-black/5
+      "
             >
               {/* Content */}
               <div className="w-full p-12 lg:p-16">
@@ -262,6 +272,7 @@ const HomePage = () => {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                  {/* Feature Item */}
                   <div className="flex items-start">
                     <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
                     <div>
@@ -322,122 +333,129 @@ const HomePage = () => {
                   Register Your Institution
                 </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Service Section 2 */}
-        <div className="w-full mb-10">
-          <div className="max-w-7xl ml-auto relative">
-            <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl"></div>
-            <div
-              className="
-    flex flex-col lg:flex-row items-center 
-    lg:rounded-l-full 
-    shadow-xl 
-    border-10 border-[#ad46ff] border-r-0 border-l-0 lg:border-l-10 
-    overflow-hidden
+       <div className="w-full mb-10">
+  <div className="max-w-7xl ml-auto relative">
 
-    bg-black/10
-    backdrop-blur-2xl
-    bg-gradient-to-br from-black/10 to-black/5
-  "
+    {/* Background circles */}
+    <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl"></div>
+
+    {/* Motion wrapper */}
+    <motion.div
+      initial={{ x: 150, opacity: 0 }}     // 🔥 start from the right
+      whileInView={{ x: 0, opacity: 1 }}   // → slide left and fade in
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="
+        flex flex-col lg:flex-row items-center 
+        lg:rounded-l-full 
+        shadow-xl 
+        border-10 border-[#ad46ff] border-r-0 border-l-0 lg:border-l-10 
+        overflow-hidden
+        bg-black/10
+        backdrop-blur-2xl
+        bg-gradient-to-br from-black/10 to-black/5
+      "
+    >
+
+      <div className="w-full p-12 lg:pl-20 lg:p-16">
+        <div className="flex items-center mb-6">
+          <div className="w-12 h-12 bg-purple-200 rounded-lg flex items-center justify-center mr-4 ml-5">
+            <svg
+              className="w-6 h-6 text-purple-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <div className="w-full p-12 lg:p-16">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-purple-200 rounded-lg flex items-center justify-center mr-4 ml-5">
-                    <svg
-                      className="w-6 h-6 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      ></path>
-                    </svg>
-                  </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              ></path>
+            </svg>
+          </div>
 
-                  <h3 className="text-4xl font-bold text-white">
-                    Student VR Learning Hub
-                  </h3>
-                </div>
+          <h3 className="text-4xl font-bold text-white">
+            Student VR Learning Hub
+          </h3>
+        </div>
 
-                <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                  Experience hands-on practical training in immersive VR
-                  environments. Perform virtual experiments, receive real-time
-                  AI guidance, and strengthen real-world skills safely and
-                  effectively.
-                </p>
+        <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+          Experience hands-on practical training in immersive VR environments.
+          Perform virtual experiments, receive real-time AI guidance, and
+          strengthen real-world skills safely and effectively.
+        </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                  <div className="flex items-start">
-                    <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-1">
-                        Interactive Virtual Labs
-                      </h4>
-                      <p className="text-gray-300 text-sm">
-                        Perform experiments in physics, chemistry, electronics,
-                        and more using VR simulations.
-                      </p>
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div className="flex items-start">
+            <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
+            <div>
+              <h4 className="font-semibold text-white mb-1">
+                Interactive Virtual Labs
+              </h4>
+              <p className="text-gray-300 text-sm">
+                Perform experiments in physics, chemistry, electronics,
+                and more using VR simulations.
+              </p>
+            </div>
+          </div>
 
-                  <div className="flex items-start">
-                    <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-1">
-                        AI-Based Assistance
-                      </h4>
-                      <p className="text-gray-300 text-sm">
-                        Get personalized hints, corrections, and adaptive
-                        difficulty.
-                      </p>
-                    </div>
-                  </div>
+          <div className="flex items-start">
+            <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
+            <div>
+              <h4 className="font-semibold text-white mb-1">
+                AI-Based Assistance
+              </h4>
+              <p className="text-gray-300 text-sm">
+                Get personalized hints, corrections, and adaptive difficulty.
+              </p>
+            </div>
+          </div>
 
-                  <div className="flex items-start">
-                    <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-1">
-                        AR Skill Tutorials
-                      </h4>
-                      <p className="text-gray-300 text-sm">
-                        Overlay AR instructions on real environments for
-                        enhanced learning.
-                      </p>
-                    </div>
-                  </div>
+          <div className="flex items-start">
+            <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
+            <div>
+              <h4 className="font-semibold text-white mb-1">
+                AR Skill Tutorials
+              </h4>
+              <p className="text-gray-300 text-sm">
+                Overlay AR instructions on real environments for enhanced learning.
+              </p>
+            </div>
+          </div>
 
-                  <div className="flex items-start">
-                    <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-1">
-                        Learning Progress Dashboard
-                      </h4>
-                      <p className="text-gray-300 text-sm">
-                        Visualize your growth, experiment history, and skill
-                        mastery.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-10 py-4 rounded-xl hover:from-purple-700 hover:to-purple-800 transition duration-300 font-semibold text-lg shadow-lg ml-auto"
-                  onClick={() => navigate("/labs")}
-                >
-                  Start Learning in XR
-                </button>
-              </div>
+          <div className="flex items-start">
+            <div className="w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4"></div>
+            <div>
+              <h4 className="font-semibold text-white mb-1">
+                Learning Progress Dashboard
+              </h4>
+              <p className="text-gray-300 text-sm">
+                Visualize your growth, experiment history, and skill mastery.
+              </p>
             </div>
           </div>
         </div>
+
+      <div className="flex justify-end">
+  <button
+    className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-10 py-4 rounded-xl hover:from-purple-700 hover:to-purple-800 transition duration-300 font-semibold text-lg shadow-lg"
+    onClick={() => navigate("/labs")}
+  >
+    Start Learning in XR
+  </button>
+</div>
+
+      </div>
+    </motion.div>
+  </div>
+</div>
       </section>
 
       {/* Features Section */}

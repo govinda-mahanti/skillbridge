@@ -37,7 +37,7 @@ const Lab = () => {
       {/* Full Width Lab Image */}
       <div className="w-full h-64 md:h-96 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600 relative overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=400&fit=crop"
+          src="https://plus.unsplash.com/premium_photo-1663040598592-9f3e311f9841?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWxlY3Ryb25pYyUyMGxhYnxlbnwwfHwwfHx8MA%3D%3D"
           alt="Lab Equipment"
           className="w-full h-full object-cover opacity-80"
         />
@@ -51,7 +51,7 @@ const Lab = () => {
             {/* Left: Lab Name and Description */}
             <div>
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-3">
-                Advanced Technology Lab
+                Electronics and Electrical Lab
               </h1>
 
               <p className="text-lg md:text-xl text-purple-100 font-medium mb-2">

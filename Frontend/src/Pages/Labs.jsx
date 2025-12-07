@@ -6,17 +6,17 @@ export default function Labs() {
     {
       id: 1,
       name: "AI Learning Assistant",
-      image: "/assets/ai-card.png",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdiUQ0cTOuM8-yxHqbMzuu6K-gyD9uDJSxcA&s",
     },
     {
       id: 2,
       name: "Physics AR Lab",
-      image: "/assets/physics-card.png",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq6xHqhLehwqu6msx-BblbkxDMdywy32Wu0g&s",
     },
     {
       id: 3,
       name: "Chemistry AR Lab",
-      image: "/assets/chem-card.png",
+      image: "https://uwaterloo.ca/news/sites/ca.news/files/styles/feature_large/public/chemed-lab-220x140.jpg?itok=mQODVYbh",
     },
   ];
 

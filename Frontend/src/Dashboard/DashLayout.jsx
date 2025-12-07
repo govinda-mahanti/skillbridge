@@ -44,7 +44,7 @@ const DashLayout = () => {
   const navItems = [
     {
       label: "Expense",
-      path: "/dashboard/labs",
+      path: "/dashboard",
       icon: <Wallet size={20} />,
     },
   ];
@@ -95,7 +95,7 @@ const DashLayout = () => {
         transition-transform duration-300 z-50 md:hidden`}
       >
         <h1 className="text-2xl font-bold text-center text-white mb-12">
-          Nidhibook
+          skillbridge
         </h1>
 
         <ul className="space-y-2">

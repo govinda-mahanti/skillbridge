@@ -37,13 +37,13 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="/" className="text-white hover:text-white transition-colors font-bold">
+          <a href="/" className="text-white hover:text-purple-400 transition-colors font-bold">
             Home
           </a>
-          <a href="/about" className="text-white hover:text-white transition-colors font-bold">
+          <a href="/about" className="text-white hover:text-purple-400 transition-colors font-bold">
             About
           </a>
-          <a href="/labs" className="text-white hover:text-white transition-colors font-bold">
+          <a href="/labs" className="text-white hover:text-purple-400 transition-colors font-bold">
             Labs
           </a>
         </nav>

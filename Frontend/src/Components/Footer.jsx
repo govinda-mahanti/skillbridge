@@ -40,7 +40,7 @@ const Footer = () => (
 
       {/* COPYRIGHT */}
       <div className="mt-10 border-t border-purple-900/30 pt-6 text-center text-sm text-gray-500">
-        <p>&copy; {new Date().getFullYear()} NidhiBook. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} SkillBridge XR. All rights reserved.</p>
       </div>
 
     </div>

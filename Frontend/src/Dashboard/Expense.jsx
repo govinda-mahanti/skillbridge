@@ -216,7 +216,7 @@ const Labs = () => {
               });
               setAddModalOpen(true);
             }}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-md w-full sm:w-auto"
+            className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg shadow-md w-full sm:w-auto"
           >
             + Add Lab
           </button>
@@ -246,7 +246,7 @@ const Labs = () => {
                   </td>
 
                   <td className="p-4 text-center">
-                    <span className="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold px-3 py-1 rounded-full text-sm">
+                    <span className="inline-flex items-center justify-center bg-purple-600 text-white font-semibold px-3 py-1 rounded-full text-sm">
                       {lab.attendeesCount || 0}
                     </span>
                   </td>
@@ -553,7 +553,7 @@ const Labs = () => {
               </button>
               <button
                 onClick={handleAddLab}
-                className="py-2 px-4 bg-indigo-600 rounded flex items-center justify-center hover:bg-indigo-700 w-full sm:w-auto"
+                className="py-2 px-4 bg-purple-600 rounded flex items-center justify-center hover:bg-purple-700 w-full sm:w-auto"
               >
                 Save
               </button>
@@ -809,7 +809,7 @@ const Labs = () => {
               </button>
               <button
                 onClick={handleUpdateLab}
-                className="py-2 px-4 bg-indigo-600 rounded flex items-center justify-center hover:bg-indigo-700 w-full sm:w-auto"
+                className="py-2 px-4 bg-purple-600 rounded flex items-center justify-center hover:bg-purple-700 w-full sm:w-auto"
               >
                 Update
               </button>
