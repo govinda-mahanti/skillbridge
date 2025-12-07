@@ -17,7 +17,6 @@ const Lab = () => {
     },
   ];
 
-   // 🔥 Handle Button Click Action
   const handleModuleClick = (moduleId) => {
     setSelectedModule(moduleId);
 

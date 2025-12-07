@@ -156,7 +156,7 @@ const Advisor = () => {
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="Ask about finances, investments, budgeting..."
+              placeholder="Ask about the lab..."
               className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 text-white placeholder-gray-500 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               disabled={isLoading}
             />
