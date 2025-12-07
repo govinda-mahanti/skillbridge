@@ -24,6 +24,7 @@ const Signup = () => {
 
     try {
       const res = await axios.post(`${BASE_URL}/auth/signup`, formData);
+      alert("Signup Successful!");
 
       const { token, ...user } = res.data;
       dispatch(setCredentials({ user, token }));
@@ -46,113 +47,120 @@ const Signup = () => {
       <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl"></div>
 
       {/* Signup Form Card */}
-     <form
-  onSubmit={handleSubmit}
-  className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 
+      <form
+        onSubmit={handleSubmit}
+        className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 
              backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-slate-700/50 
              w-full max-w-3xl space-y-6 z-10"
->
-  <h2 className="text-3xl font-bold text-center text-white">Create Account</h2>
-  <p className="text-center text-gray-400 mb-2">
-    Get started with SkillBridge
-  </p>
+      >
+        <h2 className="text-3xl font-bold text-center text-white">
+          Create Account
+        </h2>
+        <p className="text-center text-gray-400 mb-2">
+          Get started with SkillBridge
+        </p>
 
-  {errorMsg && (
-    <div className="bg-red-500/20 border border-red-500 text-red-400 px-4 py-2 rounded-xl text-center text-sm">
-      {errorMsg}
-    </div>
-  )}
+        {errorMsg && (
+          <div className="bg-red-500/20 border border-red-500 text-red-400 px-4 py-2 rounded-xl text-center text-sm">
+            {errorMsg}
+          </div>
+        )}
 
-  {/* GRID LAYOUT */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    {/* Name */}
-    <div>
-      <label className="text-gray-300 text-sm">Full Name</label>
-      <input
-        type="text"
-        placeholder="John Doe"
-        value={formData.name}
-        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-        required
-        className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
+        {/* GRID LAYOUT */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Name */}
+          <div>
+            <label className="text-gray-300 text-sm">Full Name</label>
+            <input
+              type="text"
+              placeholder="John Doe"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              required
+              className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
                    border border-slate-700 focus:border-purple-400 outline-none 
                    transition-all duration-300"
-      />
-    </div>
+            />
+          </div>
 
-    {/* Email */}
-    <div>
-      <label className="text-gray-300 text-sm">Email Address</label>
-      <input
-        type="email"
-        placeholder="example@gmail.com"
-        value={formData.email}
-        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-        required
-        className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
+          {/* Email */}
+          <div>
+            <label className="text-gray-300 text-sm">Email Address</label>
+            <input
+              type="email"
+              placeholder="example@gmail.com"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              required
+              className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
                    border border-slate-700 focus:border-purple-400 outline-none 
                    transition-all duration-300"
-      />
-    </div>
+            />
+          </div>
 
-    {/* Password */}
-    <div>
-      <label className="text-gray-300 text-sm">Password</label>
-      <input
-        type="password"
-        placeholder="••••••••"
-        value={formData.password}
-        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-        required
-        className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
+          {/* Password */}
+          <div>
+            <label className="text-gray-300 text-sm">Password</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              required
+              className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
                    border border-slate-700 focus:border-cyan-400 outline-none 
                    transition-all duration-300"
-      />
-    </div>
+            />
+          </div>
 
-    {/* Profession */}
-    <div>
-      <label className="text-gray-300 text-sm">Profession</label>
-      <input
-        type="text"
-        placeholder="Student"
-        value={formData.profession}
-        onChange={(e) =>
-          setFormData({ ...formData, profession: e.target.value })
-        }
-        required
-        className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white 
-                   border border-slate-700 focus:border-pink-400 outline-none 
-                   transition-all duration-300"
-      />
-    </div>
+          {/* Profession */}
+          <div>
+            <label className="text-gray-300 text-sm">Profession</label>
 
+            <select
+              value={formData.profession}
+              onChange={(e) =>
+                setFormData({ ...formData, profession: e.target.value })
+              }
+              required
+              className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800/60 text-white
+               border border-slate-700 focus:border-pink-400 outline-none
+               transition-all duration-300 cursor-pointer"
+            >
+              <option value="">Select Profession</option>
+              <option value="Student">Student</option>
+              <option value="University">University</option>
+            </select>
+          </div>
+        </div>
 
-  </div>
-
-  {/* Submit Button */}
-  <button
-    type="submit"
-    className="w-full bg-gradient-to-r from-purple-400 to-cyan-400 text-white 
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-purple-400 to-cyan-400 text-white 
                py-3 rounded-xl text-lg font-semibold 
                hover:shadow-2xl hover:shadow-cyan-500/30 
                transform hover:scale-105 transition-all duration-300"
-  >
-    Sign Up
-  </button>
+        >
+          Sign Up
+        </button>
 
-  <p className="text-center text-gray-400 text-sm pt-2">
-    Already have an account?{" "}
-    <span
-      className="text-cyan-400 cursor-pointer hover:underline"
-      onClick={() => navigate("/login")}
-    >
-      Log In
-    </span>
-  </p>
-</form>
-
+        <p className="text-center text-gray-400 text-sm pt-2">
+          Already have an account?{" "}
+          <span
+            className="text-cyan-400 cursor-pointer hover:underline"
+            onClick={() => navigate("/login")}
+          >
+            Log In
+          </span>
+        </p>
+      </form>
     </div>
   );
 };

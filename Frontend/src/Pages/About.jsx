@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import arvind from "../assets/arvind.jpg";
 import saumik from "../assets/saumik.jpg";
 import govinda from "../assets/govinda.jpg";
+import atharva from "../assets/atharva.jpg";  
 
 const About = () => {
   const [showInfo, setShowInfo] = useState(false);
@@ -23,7 +24,13 @@ const About = () => {
       _id: 3,
       image: saumik,
       name: "Saumik Chakrabort",
-      designation: "AI Engineer",
+      designation: "AI/ML Developer",
+    },
+    {
+      _id: 4,
+      image: atharva,
+      name: "Atharva Singh",
+      designation: "UI/UX Developer",
     },
   ];
 

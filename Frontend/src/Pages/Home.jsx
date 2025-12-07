@@ -137,8 +137,13 @@ const HomePage = () => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+
+  const handleloginClick = () => {
+    navigate("/login");
+  };
+
   return (
-    <div >
+    <div>
       {/* Main Hero Section */}
       <section id="home" className="min-h-screen flex items-center relative">
         <div className="purple-glow-left"></div>
@@ -212,7 +217,7 @@ const HomePage = () => {
         {/* Service Section 1 */}
         <div className="w-full mb-10">
           <div className="max-w-7xl relative">
-             <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl"></div>
             <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl"></div>
             <div
               className="
@@ -312,7 +317,7 @@ const HomePage = () => {
 
                 <button
                   className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-10 py-4 rounded-xl hover:from-purple-700 hover:to-purple-800 transition duration-300 font-semibold text-lg shadow-lg"
-                  onClick={() => navigate("/clgregister")}
+                  onClick={() => navigate("/signup")}
                 >
                   Register Your Institution
                 </button>
@@ -425,7 +430,7 @@ const HomePage = () => {
 
                 <button
                   className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-10 py-4 rounded-xl hover:from-purple-700 hover:to-purple-800 transition duration-300 font-semibold text-lg shadow-lg ml-auto"
-                  onClick={() => navigate("/student/home")}
+                  onClick={() => navigate("/labs")}
                 >
                   Start Learning in XR
                 </button>
@@ -482,7 +487,7 @@ const HomePage = () => {
         id="faq"
       >
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl z-2"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl z-2"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-600/20 rounded-full blur-3xl z-2"></div>
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Eye, Cpu, Sparkles, FlaskConical } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Lab = () => {
   const [selectedModule, setSelectedModule] = useState(null);
+  const navigate = useNavigate();
 
   const modules = [
     { id: "ar", name: "AR", icon: Eye, color: "from-pink-500 to-rose-500" },
@@ -15,9 +17,19 @@ const Lab = () => {
     },
   ];
 
-  const handleModuleClick = (moduleName) => {
-    setSelectedModule(moduleName);
-    setTimeout(() => setSelectedModule(null), 2000);
+   // 🔥 Handle Button Click Action
+  const handleModuleClick = (moduleId) => {
+    setSelectedModule(moduleId);
+
+    if (moduleId === "ar") {
+      window.open("https://drive.google.com", "_blank");
+    } 
+    else if (moduleId === "vr") {
+      window.open("https://drive.google.com", "_blank");
+    } 
+    else if (moduleId === "ai") {
+      navigate("/advisor");
+    }
   };
 
   return (
@@ -58,7 +70,7 @@ const Lab = () => {
                 return (
                   <button
                     key={module.id}
-                    onClick={() => handleModuleClick(module.name)}
+                    onClick={() => handleModuleClick(module.id)}
                     className={`bg-gradient-to-br ${module.color} text-white rounded-xl px-4 py-3 md:px-6 md:py-4 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center gap-2 min-w-20 md:min-w-24`}
                   >
                     <Icon className="w-6 h-6 md:w-8 md:h-8" />
@@ -106,14 +118,25 @@ const Lab = () => {
         </h3>
 
         <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-          <video
+          {/* <video
             className="w-full h-full object-cover"
             controls
-            poster="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=450&fit=crop"
+            // poster="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=450&fit=crop"
           >
-            <source src="your-video-url.mp4" type="video/mp4" />
+            <source src="https://www.youtube.com/watch?v=RU_DvmNpMeI" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
+
+          <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+  <iframe
+    className="w-full h-full"
+    src="https://www.youtube.com/embed/RU_DvmNpMeI"
+    title="Lab Video"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
         </div>
 
         <p className="text-sm text-gray-300 mt-3">

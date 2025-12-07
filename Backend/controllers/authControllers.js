@@ -58,18 +58,23 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
+
     const isPasswordCorrect = await bcrypt.compare(
       password,
       user?.password || ""
     );
+
     if (!user || !isPasswordCorrect) {
       return res.status(401).json({ message: "Invalid email or password." });
     }
+
     const token = generateToken(user._id);
+
     res.status(200).json({
       _id: user._id,
       name: user.name,
       email: user.email,
+      profession: user.profession, // ✅ ADDED HERE
       token,
     });
   } catch (error) {

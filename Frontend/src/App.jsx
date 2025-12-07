@@ -7,6 +7,7 @@ import Signup from "./Pages/Signup";
 import About from "./Pages/About";
 import Labs from "./Pages/Labs";
 import Lab from "./Pages/Lab";
+import Advisor from "./Pages/Advisor";
 
 
 import DashLayout from "./Dashboard/DashLayout";
@@ -23,6 +24,9 @@ function App() {
           <Route path="labs" element={<Labs />} />
           <Route path="lab" element={<Lab />} />
         </Route>
+
+                  <Route path="advisor" element={<Advisor />} />
+
 
 
         <Route path="/dashboard" element={<DashLayout />}>
