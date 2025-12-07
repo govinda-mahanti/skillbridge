@@ -1,2 +1,2 @@
-export const BASE_URL = 'https://nidhi-book-backend.vercel.app';
+export const BASE_URL = 'https://skillbridge-llwm.vercel.app';
 
