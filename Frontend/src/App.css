@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+
+.purple-glow-top {
+  position: absolute;
+  width: 1200px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+        rgba(158, 158, 158, 0.69) 20%,  
+
+    rgba(170, 79, 255, 0.69) 10%,  
+    rgba(168, 85, 247, 0) 100%      
+  );
+  top: -550px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.purple-glow-bottom {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(126, 34, 206, 0.35) 0%,   /* deeper purple */
+    rgba(126, 34, 206, 0) 70%
+  );
+  bottom: -250px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+
+.purple-glow-left {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(126, 34, 206, 0.35) 50%,   /* deeper purple */
+    rgba(126, 34, 206, 0) 70%
+  );
+  bottom: 5%;
+  left: 20%;
+  transform: translateX(-50%);
+  z-index: 0;
+  filter: blur(80px);
+  pointer-events: none;
+}
