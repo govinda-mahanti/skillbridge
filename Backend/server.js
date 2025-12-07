@@ -21,7 +21,7 @@ app.use(express.json());
 connectDB()
 
 app.get("/", (req, res) => {
-    res.send("Welcome to Nidhibook server");
+    res.send("Welcome to SkillBridge server");
 });
 
 app.use("/auth", authRoutes)
