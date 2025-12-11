@@ -182,11 +182,29 @@ const HomePage = () => {
       </motion.div>
 
       {/* RIGHT SIDE MODEL */}
-      <div className="relative">
-        <div className="relative z-5">
-          <YogaModel />
-        </div>
-      </div>
+     <div className="relative">
+      <motion.div
+        className="relative z-5"
+        initial={{ opacity: 0, y: 40, scale: 0.9 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        whileHover={{ scale: 1.05 }}
+      >
+        <motion.img
+          src="./vr.png"
+          alt="VR"
+          className="select-none"
+          animate={{
+            y: [0, -10, 0],      // floating effect
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </motion.div>
+    </div>
     </div>
   </div>
 </section>
