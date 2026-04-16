@@ -1,5 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import { fileURLToPath } from "url";
@@ -8,7 +7,7 @@ import connectDB from "../db/db.js"
 dotenv.config();
 
 
-import authRoutes from "./authRoutes.js"
+import adminRoutes from "./adminRoutes.js"
 import chatRoutes from "./chatRoutes.js"
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,7 +23,7 @@ app.get("/", (req, res) => {
     res.send("Welcome to SkillBridge server");
 });
 
-app.use("/auth", authRoutes)
+app.use("/admin", adminRoutes)
 app.use("/api", chatRoutes)
 
 const PORT=process.env.PORT || 5000

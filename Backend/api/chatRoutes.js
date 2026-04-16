@@ -1,5 +1,5 @@
 import express from "express";
-import { labChatWithAI, chatWithAI  } from "../controllers/chatControllers.js";
+import { chatWithAI, labChatWithAI  } from "../controllers/chatControllers.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
