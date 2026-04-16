@@ -745,12 +745,12 @@ const AddLabs = () => {
                           >
                             <Pencil className="h-4 w-4 mr-3" /> Edit Lab
                           </button>
-                          <button
+                          {/* <button
                             onClick={() => handleAttendees(lab._id, lab.name)}
                             className="w-full text-left px-4 py-3 hover:bg-gray-700 flex items-center text-green-400 hover:text-green-300 border-t border-gray-700"
                           >
                             <Users className="h-4 w-4 mr-3" /> Lab Attendees
-                          </button>
+                          </button> */}
                           <button
                             onClick={() => handleDeleteLab(lab._id)}
                             className="w-full text-left px-4 py-3 hover:bg-gray-700 flex items-center text-red-500 hover:text-red-400 border-t border-gray-700 rounded-b-lg"
