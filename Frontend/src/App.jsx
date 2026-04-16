@@ -10,8 +10,8 @@ import Lab from "./Pages/Lab";
 import Advisor from "./Pages/Advisor";
 
 
-import DashLayout from "./Dashboard/DashLayout";
-import Expense from "./Dashboard/Expense";
+import DashLayout from "./Admin/DashLayout";
+import AddLabs from "./Admin/AddLabs";
 function App() {
   return (
     <Router>
@@ -25,12 +25,9 @@ function App() {
           <Route path="lab" element={<Lab />} />
         </Route>
 
-                  <Route path="advisor" element={<Advisor />} />
-
-
-
+        <Route path="advisor" element={<Advisor />} />
         <Route path="/dashboard" element={<DashLayout />}>
-          <Route index element={<Expense />} />
+          <Route index element={<AddLabs />} />
         </Route>
       </Routes>
     </Router>

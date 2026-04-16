@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Pencil, Trash2, Upload, X, MoreVertical, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-const Labs = () => {
+const AddLabs = () => {
   const [labs, setLabs] = useState([
     {
       _id: "1",
@@ -821,4 +821,4 @@ const Labs = () => {
   );
 };
 
-export default Labs;
+export default AddLabs;

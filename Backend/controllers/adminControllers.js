@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import User from "../models/userModel.js";
+import Admin from "../models/adminModel.js";
 import generateToken from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
@@ -8,44 +8,40 @@ export const signup = async (req, res) => {
       name,
       email,
       password,
-      profession,
     } = req.body;
 
     if (
       !name ||
       !email ||
-      !password ||
-      !profession
+      !password
     ) {
       return res.status(400).json({ message: "Please fill in all fields." });
     }
 
-    const existingUser = await User.findOne({ email });
+    const existingAdmin = await Admin.findOne({ email });
 
-    if (existingUser) {
+    if (existingAdmin) {
       return res
         .status(409)
-        .json({ message: "User already exists with this email." });
+        .json({ message: "Admin already exists with this email." });
     }
 
-    const newUser = await User.create({
+    const newAdmin = await Admin.create({
       name,
       email,
       password,
-      profession,
     });
 
-    if (newUser) {
-      const token = generateToken(newUser._id);
+    if (newAdmin) {
+      const token = generateToken(newAdmin._id);
       res.status(201).json({
-        _id: newUser._id,
-        name: newUser.name,
-        email: newUser.email,
-        profession: newUser.profession,
+        _id: newAdmin._id,
+        name: newAdmin.name,
+        email: newAdmin.email,
         token,
       });
     } else {
-      res.status(400).json({ message: "Invalid user data." });
+      res.status(400).json({ message: "Invalid Admin data." });
     }
   } catch (error) {
     console.error("Signup Error:", error.message);
@@ -57,24 +53,23 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const Admin = await Admin.findOne({ email });
 
     const isPasswordCorrect = await bcrypt.compare(
       password,
-      user?.password || ""
+      Admin?.password || ""
     );
 
-    if (!user || !isPasswordCorrect) {
+    if (!Admin || !isPasswordCorrect) {
       return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    const token = generateToken(user._id);
+    const token = generateToken(Admin._id);
 
     res.status(200).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      profession: user.profession, // ✅ ADDED HERE
+      _id: Admin._id,
+      name: Admin.name,
+      email: Admin.email,
       token,
     });
   } catch (error) {
@@ -84,68 +79,64 @@ export const login = async (req, res) => {
   }
 };
 
-export const getUserProfile = async (req, res) => {
+export const getAdminProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user);
+    const Admin = await Admin.findById(req.Admin);
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!Admin) {
+      return res.status(404).json({ message: "Admin not found" });
     }
 
     res.status(200).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      profession: user.profession,
+      _id: Admin._id,
+      name: Admin.name,
+      email: Admin.email,
     });
   } catch (error) {
-    console.error("Get User Profile Error:", error.message);
+    console.error("Get Admin Profile Error:", error.message);
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 };
 
-export const updateUserProfile = async (req, res) => {
+export const updateAdminProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user);
+    const Admin = await Admin.findById(req.Admin);
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!Admin) {
+      return res.status(404).json({ message: "Admin not found" });
     }
 
     const {
       name,
       email,
-      profession,
     } = req.body;
 
-    user.name = name || user.name;
-    user.email = email || user.email;
-    user.profession = profession || user.profession;
+    Admin.name = name || Admin.name;
+    Admin.email = email || Admin.email;
    
 
-    await user.save();
+    await Admin.save();
 
     res.status(200).json({
-      message: "User profile updated successfully",
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        profession: user.profession,
+      message: "Admin profile updated successfully",
+      Admin: {
+        _id: Admin._id,
+        name: Admin.name,
+        email: Admin.email,
       },
     });
   } catch (error) {
-    console.error("Update User Profile Error:", error.message);
+    console.error("Update Admin Profile Error:", error.message);
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 };
 
 export const updatePassword = async (req, res) => {
   try {
-    const user = await User.findById(req.user);
+    const Admin = await Admin.findById(req.Admin);
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!Admin) {
+      return res.status(404).json({ message: "Admin not found" });
     }
 
     const { currentPassword, newPassword, confirmPassword } = req.body;
@@ -159,7 +150,7 @@ export const updatePassword = async (req, res) => {
       return res.status(400).json({ message: "New passwords do not match." });
     }
 
-    const isPasswordCorrect = await user.matchPassword(currentPassword);
+    const isPasswordCorrect = await Admin.matchPassword(currentPassword);
 
     if (!isPasswordCorrect) {
       return res
@@ -167,17 +158,17 @@ export const updatePassword = async (req, res) => {
         .json({ message: "Current password is incorrect." });
     }
 
-    user.password = newPassword; 
-    await user.save();
+    Admin.password = newPassword; 
+    await Admin.save();
 
-    const token = generateToken(user._id);
+    const token = generateToken(Admin._id);
 
     res.status(200).json({
       message: "Password updated successfully",
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
+      Admin: {
+        _id: Admin._id,
+        name: Admin.name,
+        email: Admin.email,
       },
       token,
     });
